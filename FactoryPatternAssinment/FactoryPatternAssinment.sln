@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27428.2011
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactoryPatternAssinment", "FactoryPatternAssinment\FactoryPatternAssinment.csproj", "{E655C09D-6ED1-410F-AA85-F163B81182EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayoutBuilder", "LayoutBuilder\LayoutBuilder.csproj", "{3E2B70A0-4986-4B82-99E4-E4E27DDD60BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayoutBuilderLib", "LayoutBuilder\LayoutBuilderLib.csproj", "{3E2B70A0-4986-4B82-99E4-E4E27DDD60BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

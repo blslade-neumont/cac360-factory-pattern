@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LayoutBuilder
+namespace LayoutBuilderLib
 {
     public abstract class LayoutBuilder
     {
