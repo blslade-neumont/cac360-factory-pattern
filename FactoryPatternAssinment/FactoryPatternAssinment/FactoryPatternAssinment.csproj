@@ -93,5 +93,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LayoutBuilder\LayoutBuilder.csproj">
+      <Project>{3e2b70a0-4986-4b82-99e4-e4e27ddd60bf}</Project>
+      <Name>LayoutBuilder</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
