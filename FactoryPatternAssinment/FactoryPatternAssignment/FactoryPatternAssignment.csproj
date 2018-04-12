@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E655C09D-6ED1-410F-AA85-F163B81182EA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>FactoryPatternAssinment</RootNamespace>
-    <AssemblyName>FactoryPatternAssinment</AssemblyName>
+    <RootNamespace>FactoryPatternAssignment</RootNamespace>
+    <AssemblyName>FactoryPatternAssignment</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -94,7 +94,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LayoutBuilder\LayoutBuilderLib.csproj">
+    <ProjectReference Include="..\LayoutBuilderLib\LayoutBuilderLib.csproj">
       <Project>{3e2b70a0-4986-4b82-99e4-e4e27ddd60bf}</Project>
       <Name>LayoutBuilderLib</Name>
     </ProjectReference>
