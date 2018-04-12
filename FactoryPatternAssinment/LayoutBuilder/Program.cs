@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-
 namespace LayoutBuilderLib
 {
     public class Program
     {
+        /// <summary>
+        /// Note: this entry point is for testing the HtmlRunner and WpfRunner functionality
+        /// </summary>
+        /// <param name="args">The command-line arguments passed to the test entry point</param>
         public static void Main(string[] args)
         {
             //RunHtml().Wait();
