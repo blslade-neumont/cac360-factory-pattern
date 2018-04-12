@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LayoutBuilderLib
 {
-    internal class WpfRunner
+    internal class WpfRunner : IRunnable
     {
         public WpfRunner(IEnumerable<string> paths, string exePath)
         {

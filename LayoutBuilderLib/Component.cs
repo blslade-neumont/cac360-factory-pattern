@@ -13,5 +13,7 @@ namespace LayoutBuilderLib
         public float Width { get; set; }
         public float Height { get; set; }
         public string Content { get; set; }
+
+        public abstract string MakeSource();
     }
 }

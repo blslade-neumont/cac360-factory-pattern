@@ -8,7 +8,7 @@ namespace LayoutBuilderLib
 {
     public abstract class LayoutBuilder
     {
-        Stack<Component> components = new Stack<Component>();
+        protected Stack<Component> m_components = new Stack<Component>();
 
         public void AddComponent(string type, string content, float top, float left, float width, float height)
         {
@@ -18,18 +18,22 @@ namespace LayoutBuilderLib
             c.Left = left;
             c.Width = width;
             c.Height = height;
-            components.Push(c);
+            m_components.Push(c);
         }
 
         public void RemoveComponent()
         {
-            components.Pop();
+            m_components.Pop();
         }
 
         public abstract Component MakeComponent(string type);
 
-        // Brandon Stuff Method, Name to be changed as well as possibly splitting it?
+        public async Task Process()
+        {
+            IRunnable runner = MakeRunnerFromComponents();
+            await runner.Run();
+        }
 
-        public abstract void Process();
+        public abstract IRunnable MakeRunnerFromComponents();
     }
 }

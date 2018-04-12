@@ -18,9 +18,11 @@ namespace LayoutBuilderLib
             throw new NotImplementedException();
         }
 
-        public override void Process()
+        public override IRunnable MakeRunnerFromComponents()
         {
             throw new NotImplementedException();
+            //string[] WPF = GetWPFFromComponents();
+            //return new WpfRunner(???);
         }
     }
 }

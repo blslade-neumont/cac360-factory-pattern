@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LayoutBuilderLib
 {
-    internal class HtmlRunner
+    internal class HtmlRunner : IRunnable
     {
         public HtmlRunner(string path)
         {
