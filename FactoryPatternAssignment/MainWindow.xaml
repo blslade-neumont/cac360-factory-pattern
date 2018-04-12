@@ -5,8 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FactoryPatternAssinment"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="&lt;AirQuotes&gt;IDE&lt;/AirQuotes&gt;" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="0">Top:</Label>
+        <TextBox Grid.Column="1" Grid.Row="0">0</TextBox>
+        <Label Grid.Column="0" Grid.Row="1">Left:</Label>
+        <TextBox Grid.Column="1" Grid.Row="1">0</TextBox>
+        <Label Grid.Column="0" Grid.Row="2">Width:</Label>
+        <TextBox Grid.Column="1" Grid.Row="2">0</TextBox>
+        <Label Grid.Column="0" Grid.Row="3">Height:</Label>
+        <TextBox Grid.Column="1" Grid.Row="3">0</TextBox>
+        <Label Grid.Column="0" Grid.Row="4">Content:</Label>
+        <TextBox Grid.Column="1" Grid.Row="4">0</TextBox>
+        <Label Grid.Column="0" Grid.Row="5">Type:</Label>
+        <ComboBox Grid.Column="1" Grid.Row="5"></ComboBox>
+        <Button Grid.Column="0" Grid.Row="6">Remove Last Component</Button>
+        <Button Grid.Column="1" Grid.Row="6">Create New Component (with specified values)</Button>
+        <Label Grid.Row="7" Grid.Column="0">List of Added Components: </Label>
+        <ListBox Grid.Row="7" Grid.Column="1"></ListBox>
+        <Label Grid.Column="0" Grid.Row="8">Select Target Language (may reset type or type options):</Label>
+        <ComboBox Grid.Column="1" Grid.Row="8"></ComboBox>
+        <Button Grid.Row="9" Grid.ColumnSpan="2">Build and Run</Button>
     </Grid>
 </Window>

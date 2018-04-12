@@ -54,6 +54,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Extensions\ProcessExt.cs" />
+    <Compile Include="Html\Components\HtmlAnchorComponent.cs" />
+    <Compile Include="Html\Components\HtmlComponent.cs" />
+    <Compile Include="Html\Components\HtmlButtonComponent.cs" />
+    <Compile Include="Html\Components\HtmlLabelComponent.cs" />
+    <Compile Include="Html\Components\HtmlTextBoxComponent.cs" />
+    <Compile Include="Html\HtmlHelper.cs" />
+    <Compile Include="Wpf\Components\WpfLabelComponent.cs" />
+    <Compile Include="Wpf\WpfLayoutBuilder.cs" />
+    <Compile Include="Wpf\WpfRunner.cs" />
+    <Compile Include="Wpf\Components\WpfTextBoxComponent.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -62,6 +73,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Html\HtmlLayoutBuilder.cs" />
+    <Compile Include="Html\HtmlRunner.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -99,5 +112,6 @@
       <Name>LayoutBuilderLib</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
