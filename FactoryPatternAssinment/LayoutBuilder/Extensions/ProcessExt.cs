@@ -22,6 +22,7 @@ namespace LayoutBuilderLib
             var tcs = new TaskCompletionSource<object>();
             process.EnableRaisingEvents = true;
             process.Exited += (sender, args) => tcs.TrySetResult(null);
+            if (process.HasExited) tcs.TrySetResult(null);
             if (cancellationToken != default(CancellationToken))
             {
                 cancellationToken.Register(tcs.SetCanceled);

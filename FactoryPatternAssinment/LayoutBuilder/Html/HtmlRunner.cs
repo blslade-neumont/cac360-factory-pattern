@@ -15,7 +15,7 @@ namespace LayoutBuilderLib
             this.path = path;
         }
 
-        public static HtmlRunner FromHtml(string html)
+        public static HtmlRunner FromCode(string html)
         {
             var tempPath = Path.GetTempFileName();
             var path = tempPath.Replace(".tmp", ".html");

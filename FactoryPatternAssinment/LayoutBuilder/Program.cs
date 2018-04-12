@@ -12,7 +12,13 @@ namespace LayoutBuilderLib
     {
         public static void Main(string[] args)
         {
-            var runner = HtmlRunner.FromHtml($"<!doctype html>" +
+            //RunHtml().Wait();
+            RunWpf().Wait();
+        }
+
+        private static async Task RunHtml()
+        {
+            var runner = HtmlRunner.FromCode($"<!doctype html>" +
                 $"<html>" +
                 $"<head><title>My Title</title></head>" +
                 $"<body>" +
@@ -20,7 +26,22 @@ namespace LayoutBuilderLib
                 $"</body>" +
                 $"</html>");
 
-            runner.Run();
+            await runner.Run();
+        }
+
+        private static async Task RunWpf()
+        {
+            var runner = WpfRunner.FromCode($"using System;" +
+                "public class Program" +
+                "{" +
+                "  public static void Main(string[] args)" +
+                "  {" +
+                "    Console.WriteLine(\"Hello, World!\");" +
+                "    Console.ReadKey();" +
+                "  }" +
+                "}");
+
+            await runner.Run();
         }
     }
 }
