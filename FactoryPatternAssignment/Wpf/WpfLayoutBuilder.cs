@@ -1,4 +1,7 @@
-﻿using System;
+﻿using FactoryPatternAssignment.Html.Components;
+using FactoryPatternAssignment.Wpf;
+using FactoryPatternAssignment.Wpf.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,14 +18,14 @@ namespace LayoutBuilderLib
 
         public override Component MakeComponent(string type)
         {
-            throw new NotImplementedException();
+            return type == "Label" ? (Component)(new WpfLabelComponent())
+                 : type == "TextBox" ? (Component)(new WpfTextBoxComponent())
+                 : null;
         }
 
         public override IRunnable MakeRunnerFromComponents()
         {
             throw new NotImplementedException();
-            //string[] WPF = GetWPFFromComponents();
-            //return new WpfRunner(???);
         }
     }
 }
