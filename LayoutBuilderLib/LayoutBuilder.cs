@@ -8,7 +8,9 @@ namespace LayoutBuilderLib
 {
     public abstract class LayoutBuilder
     {
-        protected Stack<Component> m_components = new Stack<Component>();
+        protected Queue<Component> m_components = new Queue<Component>();
+
+        protected Dictionary<string, Type> m_componentTypes = new Dictionary<string, Type>();
 
         public void AddComponent(string type, string content, float top, float left, float width, float height)
         {
@@ -18,16 +20,26 @@ namespace LayoutBuilderLib
             c.Left = left;
             c.Width = width;
             c.Height = height;
-            m_components.Push(c);
+            m_components.Enqueue(c);
         }
 
         public void RemoveComponent()
         {
-            m_components.Pop();
+            m_components.Dequeue();
         }
 
-        public abstract Component MakeComponent(string type);
-
+        public virtual string[] GetValidComponentTypes()
+        {
+            return this.m_componentTypes.Keys.ToArray();
+        }
+        public virtual Component MakeComponent(string type)
+        {
+            if (!this.m_componentTypes.ContainsKey(type)) throw new NotSupportedException($"Invalid component type: {type}");
+            var compType = this.m_componentTypes[type];
+            var comp = (Component)Activator.CreateInstance(compType);
+            return comp;
+        }
+        
         public async Task Process()
         {
             IRunnable runner = MakeRunnerFromComponents();

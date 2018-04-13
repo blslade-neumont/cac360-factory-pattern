@@ -13,15 +13,10 @@ namespace FactoryPatternAssignment.Html
         public HtmlLayoutBuilder()
             : base()
         {
-        }
-
-        public override Component MakeComponent(string type)
-        {
-            return type == "Anchor"  ? (Component)(new HtmlAnchorComponent())
-                 : type == "Button"  ? (Component)(new HtmlButtonComponent())
-                 : type == "Label"   ? (Component)(new HtmlLabelComponent())
-                 : type == "TextBox" ? (Component)(new HtmlTextBoxComponent())
-                 : null;
+            this.m_componentTypes["Anchor"] = typeof(HtmlAnchorComponent);
+            this.m_componentTypes["Button"] = typeof(HtmlButtonComponent);
+            this.m_componentTypes["Label"] = typeof(HtmlLabelComponent);
+            this.m_componentTypes["TextBox"] = typeof(HtmlTextBoxComponent);
         }
 
         public override IRunnable MakeRunnerFromComponents()

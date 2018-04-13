@@ -13,16 +13,11 @@ namespace LayoutBuilderLib
     {
         public WpfLayoutBuilder()
             : base()
-        { 
-        }
-
-        public override Component MakeComponent(string type)
         {
-            return type == "Label" ? (Component)(new WpfLabelComponent())
-                 : type == "TextBox" ? (Component)(new WpfTextBoxComponent())
-                 : null;
+            this.m_componentTypes["Label"] = typeof(WpfLabelComponent);
+            this.m_componentTypes["TextBox"] = typeof(WpfTextBoxComponent);
         }
-
+        
         public override IRunnable MakeRunnerFromComponents()
         {
             throw new NotImplementedException();
