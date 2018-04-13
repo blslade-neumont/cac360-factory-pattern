@@ -28,19 +28,16 @@ namespace FactoryPatternAssignment
             string src = $@"
 public class App : System.Windows.Application
 {{
+    [System.STAThread]
     public static void Main(string[] args)
     {{
+        var window = new MainWindow();
+        window.Show();
         new App().Run();
-    }}
-    
-    protected override void OnStartup(System.Windows.StartupEventArgs e)
-    {{
-        base.OnStartup(e);
-        new MainWindow().Show();
     }}
 }}
 
-public class MainWindow : System.Windows.Window, System.Windows.Markup.IComponentConnector
+public class MainWindow : System.Windows.Window
 {{
     public MainWindow()
         : base()
@@ -54,12 +51,16 @@ public class MainWindow : System.Windows.Window, System.Windows.Markup.IComponen
     {{
         if (_contentLoaded) return;
         _contentLoaded = true;
+
+        Width = 600;
+        Height = 400;
+        Title = ""Simple Window"";
+        WindowStyle = System.Windows.WindowStyle.ToolWindow;
         
+        var grid = new System.Windows.Controls.Grid();
+        Content = grid;
+
         {initializationSrc}
-    }}
-    
-    void System.Windows.Markup.IComponentConnector.Connect(int connectionId, object target) {{
-        this._contentLoaded = true;
     }}
 }}
 ";
