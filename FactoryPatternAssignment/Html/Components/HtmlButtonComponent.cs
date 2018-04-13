@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FactoryPatternAssignment.Html.Components
+namespace FactoryPatternAssignment
 {
     public class HtmlButtonComponent : Component
     {

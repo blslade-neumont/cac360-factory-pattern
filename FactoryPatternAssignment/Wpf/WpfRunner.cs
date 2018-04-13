@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LayoutBuilderLib
+namespace FactoryPatternAssignment
 {
-    internal class WpfRunner : IRunnable
+    internal class WpfRunner : CSharpRunner
     {
         public WpfRunner(IEnumerable<string> paths, string exePath)
+            : base(paths, WPF_REFERENCES, exePath)
         {
-            this.paths = paths.ToArray();
-            this.exePath = exePath;
         }
 
-        public static WpfRunner FromCode(params string[] compilationUnits)
+        public static WpfRunner FromCode(string[] compilationUnits)
         {
             var paths = new List<string>();
             foreach (var compilationUnit in compilationUnits)
@@ -35,38 +32,10 @@ namespace LayoutBuilderLib
             return new WpfRunner(paths, exePath);
         }
 
-        private string[] paths;
-        private string exePath;
-
-        private string GetCSCPath()
-        {
-            var frameworkPath = RuntimeEnvironment.GetRuntimeDirectory();
-            var cscPath = Path.Combine(frameworkPath, "csc.exe");
-            return cscPath;
-        }
-
-        private async Task Build()
-        {
-            Process proc = new Process();
-            proc.StartInfo.UseShellExecute = true;
-            proc.StartInfo.FileName = this.GetCSCPath();
-            proc.StartInfo.Arguments = $@"-optimize -out:""{exePath}"" {string.Join(" ", this.paths.Select(path => "\"" + path + "\""))}";
-            proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            proc.Start();
-            
-            await proc.WaitForExitAsync();
-        }
-
-        public async Task Run()
-        {
-            await Build();
-
-            Process proc = new Process();
-            proc.StartInfo.UseShellExecute = true;
-            proc.StartInfo.FileName = this.exePath;
-            proc.Start();
-
-            await proc.WaitForExitAsync();
-        }
+        public static string[] WPF_REFERENCES = new string[] {
+            @"C:\Program Files\Reference Assemblies\Microsoft\Framework\v3.0\presentationframework.dll",
+            @"C:\Program Files\Reference Assemblies\Microsoft\Framework\v3.0\windowsbase.dll",
+            @"C:\Program Files\Reference Assemblies\Microsoft\Framework\v3.0\presentationcore.dll"
+        };
     }
 }

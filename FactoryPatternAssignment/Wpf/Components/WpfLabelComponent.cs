@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FactoryPatternAssignment.Wpf.Components
+namespace FactoryPatternAssignment
 {
     public class WpfLabelComponent : Component
     {
         public override string MakeSource()
         {
-            throw new NotImplementedException();
+            return "";
         }
     }
 }

@@ -1,12 +1,11 @@
-﻿using FactoryPatternAssignment.Html.Components;
-using LayoutBuilderLib;
+﻿using LayoutBuilderLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FactoryPatternAssignment.Html
+namespace FactoryPatternAssignment
 {
     public class HtmlLayoutBuilder : LayoutBuilder
     {
