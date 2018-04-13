@@ -18,7 +18,7 @@ namespace LayoutBuilderLib
             this.m_componentTypes["TextBox"] = typeof(WpfTextBoxComponent);
         }
         
-        public override IRunnable MakeRunnerFromComponents()
+        protected override IRunnable MakeRunnerFromComponents()
         {
             throw new NotImplementedException();
         }

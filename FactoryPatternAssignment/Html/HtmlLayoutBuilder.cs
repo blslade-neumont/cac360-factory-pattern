@@ -19,7 +19,7 @@ namespace FactoryPatternAssignment.Html
             this.m_componentTypes["TextBox"] = typeof(HtmlTextBoxComponent);
         }
 
-        public override IRunnable MakeRunnerFromComponents()
+        protected override IRunnable MakeRunnerFromComponents()
         {
             string HTML = GetHTMLFromComponents();
             return HtmlRunner.FromCode(HTML);

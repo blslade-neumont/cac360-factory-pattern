@@ -12,7 +12,7 @@ namespace LayoutBuilderLib
 
         protected Dictionary<string, Type> m_componentTypes = new Dictionary<string, Type>();
 
-        public void AddComponent(string type, string content, float top, float left, float width, float height)
+        public Component AddComponent(string type, string content, float top, float left, float width, float height)
         {
             Component c = MakeComponent(type);
             c.Content = content;
@@ -21,17 +21,19 @@ namespace LayoutBuilderLib
             c.Width = width;
             c.Height = height;
             m_components.Enqueue(c);
+            return c;
         }
 
-        public void RemoveComponent()
+        public Component RemoveComponent()
         {
-            m_components.Dequeue();
+            return m_components.Dequeue();
         }
 
         public virtual string[] GetValidComponentTypes()
         {
             return this.m_componentTypes.Keys.ToArray();
         }
+
         public virtual Component MakeComponent(string type)
         {
             if (!this.m_componentTypes.ContainsKey(type)) throw new NotSupportedException($"Invalid component type: {type}");
@@ -46,6 +48,6 @@ namespace LayoutBuilderLib
             await runner.Run();
         }
 
-        public abstract IRunnable MakeRunnerFromComponents();
+        protected abstract IRunnable MakeRunnerFromComponents();
     }
 }

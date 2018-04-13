@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command\DelegateCommand.cs" />
     <Compile Include="Extensions\ProcessExt.cs" />
     <Compile Include="Html\Components\HtmlAnchorComponent.cs" />
     <Compile Include="Html\Components\HtmlComponent.cs" />
@@ -61,6 +62,8 @@
     <Compile Include="Html\Components\HtmlLabelComponent.cs" />
     <Compile Include="Html\Components\HtmlTextBoxComponent.cs" />
     <Compile Include="Html\HtmlHelper.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Wpf\Components\WpfLabelComponent.cs" />
     <Compile Include="Wpf\WpfLayoutBuilder.cs" />
     <Compile Include="Wpf\WpfRunner.cs" />

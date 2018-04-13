@@ -15,5 +15,10 @@ namespace LayoutBuilderLib
         public string Content { get; set; }
 
         public abstract string MakeSource();
+
+        public override string ToString()
+        {
+            return $"ComponentType: {GetType().Name}, Top: {Top}, Left: {Left}, Width: {Width}, Height: {Height}, Content: {Content}";
+        }
     }
 }
