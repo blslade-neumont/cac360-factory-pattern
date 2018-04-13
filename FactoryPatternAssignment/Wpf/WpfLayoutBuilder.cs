@@ -57,10 +57,13 @@ public class MainWindow : System.Windows.Window
         Title = ""Simple Window"";
         WindowStyle = System.Windows.WindowStyle.ToolWindow;
         
-        var grid = new System.Windows.Controls.Grid();
-        Content = grid;
-
+        var canvas = new System.Windows.Controls.Canvas();
+        System.Windows.Controls.Label label;
+        System.Windows.Controls.TextBox textBox;
         {initializationSrc}
+
+        Content = canvas;
+
     }}
 }}
 ";

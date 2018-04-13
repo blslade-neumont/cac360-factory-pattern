@@ -56,7 +56,7 @@ namespace FactoryPatternAssignment
             proc.StartInfo.Arguments = $@"/optimize /target:winexe /out:""{exePath}"" {string.Join(" ", this.paths.Select(path => "\"" + path + "\""))} {string.Join(" ", this.references.Select(@ref => "/reference:\"" + @ref + "\""))}";
             proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             proc.Start();
-            
+
             await proc.WaitForExitAsync();
         }
 

@@ -11,7 +11,13 @@ namespace FactoryPatternAssignment
     {
         public override string MakeSource()
         {
-            return "";
+            return $@"textBox = new System.Windows.Controls.TextBox();
+                      textBox.Text=""{Content}"";
+                      System.Windows.Controls.Canvas.SetTop(textBox, {Top});
+                      System.Windows.Controls.Canvas.SetLeft(textBox,{Left});
+                      textBox.Width={Width};
+                      textBox.Height={Height};
+                      canvas.Children.Add(textBox);";
         }
     }
 }
