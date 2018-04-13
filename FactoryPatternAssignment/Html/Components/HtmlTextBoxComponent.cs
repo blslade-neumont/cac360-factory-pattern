@@ -11,7 +11,7 @@ namespace FactoryPatternAssignment
     {
         public override string MakeSource()
         {
-            return $"<input type=\"text\" style=\"{HtmlHelper.StyleForComponent(this)}\">{Content}</input>";
+            return $"<input type=\"text\" style=\"{HtmlHelper.StyleForComponent(this)}\" value=\"{Content}\" />";
         }
     }
 }
