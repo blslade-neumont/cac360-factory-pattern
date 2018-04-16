@@ -23,11 +23,11 @@ namespace FactoryPatternAssignment.ViewModels
         public MainViewModel()
         {
             m_exportType = ExportTypeOptions.FirstOrDefault();
-            ResetState();
             PropertyChanged += MainViewModel_PropertyChanged;
             CreateComponentCommand = new DelegateCommand(OnCreateClick);
             RemoveComponentCommand = new DelegateCommand(OnRemoveClick, OnCanRemove);
             BuildAndRunCommand = new DelegateCommand(OnBuildAndRun);
+            ResetState();
         }
 
         private bool OnCanRemove(object arg)
@@ -61,6 +61,7 @@ namespace FactoryPatternAssignment.ViewModels
             ComponentType = TypeOptions.FirstOrDefault();
 
             Components.Clear();
+            SetEmpty();
         }
 
         private float m_top;
