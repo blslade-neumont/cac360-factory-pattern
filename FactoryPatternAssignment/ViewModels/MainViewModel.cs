@@ -18,14 +18,21 @@ namespace FactoryPatternAssignment.ViewModels
             { "WpfLayoutBuilder", new WpfLayoutBuilder() }
         };
 
+        private bool m_canRemoveComponent = false;
+
         public MainViewModel()
         {
             m_exportType = ExportTypeOptions.FirstOrDefault();
             ResetState();
             PropertyChanged += MainViewModel_PropertyChanged;
             CreateComponentCommand = new DelegateCommand(OnCreateClick);
-            RemoveComponentCommand = new DelegateCommand(OnRemoveClick);
+            RemoveComponentCommand = new DelegateCommand(OnRemoveClick, OnCanRemove);
             BuildAndRunCommand = new DelegateCommand(OnBuildAndRun);
+        }
+
+        private bool OnCanRemove(object arg)
+        {
+            return m_canRemoveComponent;
         }
 
         private void MainViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -123,11 +130,25 @@ namespace FactoryPatternAssignment.ViewModels
         private void OnCreateClick(object obj)
         {
             Components.Add(m_layoutBuilders[ExportType].AddComponent(ComponentType, Content, Top, Left, Width, Height));
+            if (Components.Count == 1) { SetNotEmpty(); }
         }
 
         private void OnRemoveClick(object obj)
         {
             Components.Remove(m_layoutBuilders[ExportType].RemoveComponent());
+            if (Components.Count == 0) { SetEmpty(); }
+        }
+        
+        private void SetEmpty()
+        {
+            m_canRemoveComponent = false;
+            ((DelegateCommand)RemoveComponentCommand).RaiseCanExecuteChanged();
+        }
+
+        private void SetNotEmpty()
+        {
+            m_canRemoveComponent = true;
+            ((DelegateCommand)RemoveComponentCommand).RaiseCanExecuteChanged();
         }
 
         private async void OnBuildAndRun(object obj)

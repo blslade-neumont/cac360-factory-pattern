@@ -26,7 +26,7 @@ namespace LayoutBuilderLib
 
         public Component RemoveComponent()
         {
-            return m_components.Dequeue();
+            return m_components.Count > 0 ? m_components.Dequeue() : null;
         }
 
         public virtual string[] GetValidComponentTypes()
